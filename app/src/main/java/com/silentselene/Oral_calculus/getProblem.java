@@ -1,4 +1,4 @@
-package com.silentselene.calc_practice;
+package com.silentselene.Oral_calculus;
 
 import java.util.Random;
 
