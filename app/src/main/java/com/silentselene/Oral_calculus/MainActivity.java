@@ -14,18 +14,16 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    public static final int problemnums = 13;
-    public static final int problemtypes = 1;
-    public static int score = 0;
-    public static int type = 0;
+    public static final int problemnums = 13;       //每次题目数量
+    public static final int problemtypes = 13;       //总题目类型
+    public static int score = 0;                    //当前分数
+    public static int type = 0;                     //当前类型
     private TextView mTextMessage;
 
-    private FrameLayout frameLayout;
     private FragmentManager fragmentManager;
     private HomeFragment homeFragment;
     private DashboardFragment dashboardFragment;
     private SettingFragment settingFragment;
-
 
     //隐藏所有Fragment
     public void hideAllFragment(FragmentTransaction transaction) {
@@ -104,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         frameLayout = findViewById(R.id.main_fragment_container);
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -111,5 +110,140 @@ public class MainActivity extends AppCompatActivity {
         transaction.add(R.id.main_fragment_container, homeFragment);
         transaction.commit();
 
+        //setButtonAction();
+    }
+
+    private void setButtonAction() {
+        Button button;
+        button = findViewById(R.id.button1_1);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 1;
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+        button = findViewById(R.id.button1_2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 2;
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+        button = findViewById(R.id.button1_3);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 3;
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+        button = findViewById(R.id.button1_4);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 4;
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+        button = findViewById(R.id.button1_5);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 5;
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+        button = findViewById(R.id.button1_6);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 6;
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+        button = findViewById(R.id.button1_7);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 7;
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+        button = findViewById(R.id.button1_8);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 8;
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+        button = findViewById(R.id.button1_9);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 9;
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+        button = findViewById(R.id.button1_10);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 10;
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+        button = findViewById(R.id.button1_11);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 11;
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+        button = findViewById(R.id.button1_12);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 12;
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+        button = findViewById(R.id.button1_13);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 13;
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
