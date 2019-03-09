@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     public static int type = 0;                     //当前类型
     private TextView mTextMessage;
 
+    private FrameLayout frameLayout;
     private FragmentManager fragmentManager;
     private HomeFragment homeFragment;
     private DashboardFragment dashboardFragment;
