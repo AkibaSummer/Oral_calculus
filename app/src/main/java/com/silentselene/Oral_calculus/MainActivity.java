@@ -93,17 +93,6 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, TestActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
         frameLayout = findViewById(R.id.main_fragment_container);
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -111,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         transaction.add(R.id.main_fragment_container, homeFragment);
         transaction.commit();
 
-        //setButtonAction();
     }
 
 }
