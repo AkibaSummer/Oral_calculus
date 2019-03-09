@@ -114,7 +114,7 @@ final class getProblem {
         else return generateSub(99, rand.nextInt(1) + 2, rand.nextInt(1));
     }
 
-    private static Ret p8() { // 万以内的加减法
+    private static Ret p8() { //万以内的加减法
         if (rand.nextBoolean()) return generateAdd(10000, rand.nextInt(2) + 2, rand.nextInt(1));
         else return generateSub(10000, rand.nextInt(2) + 2, rand.nextInt(1));
     }
