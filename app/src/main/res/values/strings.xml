@@ -16,4 +16,5 @@
     <string name="p_11">表内乘除法</string>
     <string name="p_12">带余除法</string>
     <string name="p_13">两位数的乘法</string>
+    <string name="dashboard_title">排行榜</string>
 </resources>

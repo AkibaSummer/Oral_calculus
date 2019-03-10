@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private HomeFragment homeFragment;
     private DashboardFragment dashboardFragment;
     private SettingFragment settingFragment;
+    public static int i;
 
     //隐藏所有Fragment
     public void hideAllFragment(FragmentTransaction transaction) {

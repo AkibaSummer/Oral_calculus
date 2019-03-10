@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:showDividers="middle"
+    android:divider="@color/colorPrimaryDark">
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -10,6 +12,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:showDividers="middle"
+            android:divider="@color/colorPrimaryDark"
             android:orientation="vertical">
 
             <Button
@@ -113,19 +117,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
+                android:id="@+id/dashboard_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="@string/dashboard_title"
+                android:textSize="30sp" />
 
-            <TextView
-                android:id="@+id/textView2"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_height="match_parent"
+                android:showDividers="middle"
+                android:divider="@color/colorPrimaryDark"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

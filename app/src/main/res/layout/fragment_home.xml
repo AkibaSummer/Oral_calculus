@@ -11,7 +11,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:divider="@color/colorPrimaryDark"
+            android:orientation="vertical"
+            android:showDividers="middle">
 
             <Button
                 android:id="@+id/button1_1"
