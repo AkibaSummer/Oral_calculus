@@ -1,6 +1,5 @@
 package com.silentselene.Oral_calculus;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,21 +24,6 @@ public class DashboardFragment extends Fragment {
             R.id.button2_12,
             R.id.button2_13};
 
-    public final static int[] type_name = {
-            R.string.p_1,
-            R.string.p_2,
-            R.string.p_3,
-            R.string.p_4,
-            R.string.p_5,
-            R.string.p_6,
-            R.string.p_7,
-            R.string.p_8,
-            R.string.p_9,
-            R.string.p_10,
-            R.string.p_11,
-            R.string.p_12,
-            R.string.p_13,
-    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,14 +36,14 @@ public class DashboardFragment extends Fragment {
 
     private void setButtonAction(final View view) {
         Button button;
-        for (int i = 0; i < MainActivity.problemtypes; i++) {
+        for (int i = 0; i < Constant.problemtypes; i++) {
             button = view.findViewById(id[i]);
             final TextView textView = view.findViewById(R.id.dashboard_title);
             final int ii = i;
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    textView.setText(type_name[ii]);
+                    textView.setText(Constant.type_name[ii]);
                 }
             });
         }

@@ -6,8 +6,8 @@ class Ret {
     String problem, ans;
 
     Ret() {
-        problem = "";
-        ans = "";
+        problem = "p";
+        ans = "a";
     }
 
     Ret(String _problem, String _ans) {
@@ -175,7 +175,7 @@ final class getProblem {
             case 13:
                 return p13();
             default:
-                return new Ret();
+                return new Ret("not","type"+i);
         }
     }
 }

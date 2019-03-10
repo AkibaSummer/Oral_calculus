@@ -14,10 +14,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    public static final int problemnums = 13;       //每次题目数量
-    public static final int problemtypes = 13;       //总题目类型
-    public static int score = 0;                    //当前分数
-    public static int type = 0;                     //当前类型
     private TextView mTextMessage;
 
     private FrameLayout frameLayout;
@@ -25,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private HomeFragment homeFragment;
     private DashboardFragment dashboardFragment;
     private SettingFragment settingFragment;
-    public static int i;
 
     //隐藏所有Fragment
     public void hideAllFragment(FragmentTransaction transaction) {

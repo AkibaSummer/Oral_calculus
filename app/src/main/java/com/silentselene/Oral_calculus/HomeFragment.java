@@ -24,8 +24,6 @@ public class HomeFragment extends Fragment {
             R.id.button1_12,
             R.id.button1_13};
 
-    public int i;
-
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
@@ -35,12 +33,14 @@ public class HomeFragment extends Fragment {
 
     private void setButtonAction(View view, final LayoutInflater inflater) {
         Button button;
-        for (i = 0; i < MainActivity.problemtypes; i++) {
+        for (int i = 0; i < Constant.problemtypes; i++) {
             button = view.findViewById(id[i]);
+            final int ii=i;
             button.setOnClickListener(new View.OnClickListener() {
+                final int iii=ii;
                 @Override
                 public void onClick(View view) {
-                    MainActivity.type = i + 1;
+                    Constant.type = iii + 1;
                     Intent intent = new Intent();
                     intent.setClass(inflater.getContext(), TestActivity.class);
                     startActivity(intent);
