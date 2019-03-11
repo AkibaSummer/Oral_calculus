@@ -147,6 +147,7 @@ final class getProblem {
     }
 
     static Ret get(int i) {
+        i++;
         switch (i) {
             case 1:
                 return p1();

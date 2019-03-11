@@ -35,12 +35,11 @@ public class HomeFragment extends Fragment {
         Button button;
         for (int i = 0; i < Constant.problemtypes; i++) {
             button = view.findViewById(id[i]);
-            final int ii=i;
+            final int ii = i;
             button.setOnClickListener(new View.OnClickListener() {
-                final int iii=ii;
                 @Override
                 public void onClick(View view) {
-                    Constant.type = iii + 1;
+                    Constant.type = ii;
                     Intent intent = new Intent();
                     intent.setClass(inflater.getContext(), TestActivity.class);
                     startActivity(intent);

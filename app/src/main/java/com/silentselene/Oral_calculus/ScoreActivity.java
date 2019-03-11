@@ -12,6 +12,6 @@ public class ScoreActivity extends AppCompatActivity {
         TextView score=findViewById(R.id.score_score);
         score.setText(String.valueOf(Constant.score));
         TextView type=findViewById(R.id.score_type);
-        type.setText(Constant.type_name[Constant.type-1]);
+        type.setText(Constant.type_name[Constant.type]);
     }
 }

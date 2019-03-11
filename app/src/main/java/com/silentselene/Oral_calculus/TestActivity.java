@@ -99,7 +99,15 @@ public class TestActivity extends AppCompatActivity {
             Intent intent = new Intent();
             intent.setClass(TestActivity.this, ScoreActivity.class);
             startActivity(intent);
+
+            timer.cancel();
             this.finish();
         }
+    }
+
+    @Override
+    public void onBackPressed(){
+        timer.cancel();
+        this.finish();
     }
 }
