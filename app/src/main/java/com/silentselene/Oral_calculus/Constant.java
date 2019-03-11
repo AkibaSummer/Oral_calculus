@@ -5,9 +5,8 @@ class Constant {
     static final int problemtypes = 13;       //总题目类型
     static int score = 0;                    //当前分数
     static int type = 0;                     //当前类型
-//    final static int maxtime = 10 * 1000;        //每题时间
 
-    public final static int[] type_name = {
+    final static int[] type_name = {
             R.string.p_1,
             R.string.p_2,
             R.string.p_3,
@@ -23,10 +22,10 @@ class Constant {
             R.string.p_13,
     };
 
-    public final static int[] type_time = { //每题时间
-            10,10,10,10,10,
-            10,10,10,10,10,
-            10,10,10
+    final static int[] type_time = { //每题时间
+            10, 10, 10, 10, 10,
+            10, 10, 10, 10, 10,
+            10, 10, 10
     };
 
 
