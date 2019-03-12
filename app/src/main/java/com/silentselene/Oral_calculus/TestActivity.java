@@ -19,13 +19,13 @@ public class TestActivity extends AppCompatActivity {
     CountDownTimer timer, popTimer;                               //get view
     EditText answerE;
     TextView problemT, nowNumT, scoreT, nowTimeT;
-    private PopUtil popUtil;
+    PopUtil popUtil;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-
+        setTitle(Constant.type_name[Constant.type]);
         Constant.score = -1;
 
         answerE = findViewById(R.id.answer);
@@ -65,7 +65,7 @@ public class TestActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
                 if (editable.toString().equals(nowProblem.ans)) {
                     long now_score = Constant.type_time[Constant.type] * 1000 - (System.currentTimeMillis() - begin_time);
-                    now_score = now_score * Constant.type_time[Constant.type] / 200 + 500; //base score:500 point; max time score:500 point;
+                    now_score = now_score * 500 / (Constant.type_time[Constant.type] * 1000) + 500; //base score:500 point; max time score:500 point;
                     score += now_score;
                     start_next_problem();
                     pop("正确,获得 " + now_score + " 分");
@@ -92,9 +92,9 @@ public class TestActivity extends AppCompatActivity {
 
     private void start_next_problem() {          // start next problem
         timer.cancel();
+        if (judgeIsEnd()) return;
         ++nowNum;
-        judgeIsEnd();
-        nowTime = Constant.type_time[Constant.type] + 1;
+        nowTime = Constant.type_time[Constant.type];
         begin_time = System.currentTimeMillis();
         nowProblem = getProblem.get(Constant.type);
         answerE.setText("");
@@ -110,29 +110,42 @@ public class TestActivity extends AppCompatActivity {
         nowTimeT.setText(String.valueOf(nowTime));
     }
 
-    private void judgeIsEnd() {
+    private boolean judgeIsEnd() {
         if (nowNum == Constant.problemnums) {
             Constant.score = (int) score;
             Intent intent = new Intent();
             intent.setClass(TestActivity.this, ScoreActivity.class);
             startActivity(intent);
 
-            timer.cancel();
-            popTimer.cancel();
             finish();
+            return true;
         }
+        return false;
     }
 
     @Override
     public void onBackPressed() {
-        timer.cancel();
-        popTimer.cancel();
         finish();
     }
 
     void pop(String text) {
         popTimer.cancel();
+        popUtil.dismiss();
         popUtil.textView.setText(text);
         popTimer.start();
+    }
+
+    @Override
+    public void finish(){
+        timer.cancel();
+        popTimer.cancel();
+        popUtil.dismiss();
+        super.finish();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 }

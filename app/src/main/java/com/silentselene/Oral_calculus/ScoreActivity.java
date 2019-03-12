@@ -25,7 +25,8 @@ public class ScoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     FileOutputStream fileOutputStream = openFileOutput("board_" + Constant.type, MODE_APPEND);
-                    String name = ((EditText) v.findViewById(R.id.name)).getText().toString();
+                    EditText nameT = findViewById(R.id.name);
+                    String name = nameT.getText().toString();
                     if (name.length() == 0) name = "匿名";
                     fileOutputStream.write(name.getBytes().length);
                     fileOutputStream.write(name.getBytes());
