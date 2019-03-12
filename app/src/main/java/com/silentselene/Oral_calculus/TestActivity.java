@@ -83,6 +83,7 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onFinish() {                        // time out
                 start_next_problem();
+                pop("超时");
             }
         };
 
