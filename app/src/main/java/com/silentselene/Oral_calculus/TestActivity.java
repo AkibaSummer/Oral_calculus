@@ -97,7 +97,7 @@ public class TestActivity extends AppCompatActivity {
         nowTime = Constant.type_time[Constant.type] + 1;
         begin_time = System.currentTimeMillis();
         nowProblem = getProblem.get(Constant.type);
-        answerE.clearComposingText();
+        answerE.setText("");
         updateView();
         timer.start();
     }

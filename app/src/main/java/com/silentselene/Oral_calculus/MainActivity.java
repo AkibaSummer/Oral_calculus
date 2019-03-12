@@ -86,8 +86,13 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        homeFragment = new HomeFragment();
-        transaction.add(R.id.main_fragment_container, homeFragment);
+        if (homeFragment ==null){
+            homeFragment = new HomeFragment();
+            transaction.add(R.id.main_fragment_container, homeFragment);
+        }
+        else {
+            transaction.show(homeFragment);
+        }
         transaction.commit();
     }
 
