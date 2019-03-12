@@ -27,6 +27,14 @@ class Constant {
             10, 10, 10, 10, 10,
             10, 10, 10
     };
+}
 
+class Board implements Comparable<Board> {
+    String name;
+    int score;
 
+    @Override
+    public int compareTo(Board o) {
+        return -Integer.compare(score, o.score);
+    }
 }

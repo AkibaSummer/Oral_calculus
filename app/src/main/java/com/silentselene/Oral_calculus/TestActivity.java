@@ -67,8 +67,8 @@ public class TestActivity extends AppCompatActivity {
                     long now_score = Constant.type_time[Constant.type] * 1000 - (System.currentTimeMillis() - begin_time);
                     now_score = now_score * Constant.type_time[Constant.type] / 200 + 500; //base score:500 point; max time score:500 point;
                     score += now_score;
-                    pop("正确,获得 " + now_score + " 分");
                     start_next_problem();
+                    pop("正确,获得 " + now_score + " 分");
                 }
             }
         });
@@ -117,7 +117,7 @@ public class TestActivity extends AppCompatActivity {
             startActivity(intent);
 
             timer.cancel();
-            this.finish();
+            finish();
         }
     }
 
@@ -125,7 +125,7 @@ public class TestActivity extends AppCompatActivity {
     public void onBackPressed() {
         timer.cancel();
         popTimer.cancel();
-        this.finish();
+        finish();
     }
 
     void pop(String text) {

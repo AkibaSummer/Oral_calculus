@@ -44,7 +44,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="qqwe"
+        android:text="problem_type"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/score_score"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/name"
         style="@android:style/Widget.Material.EditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,8 +61,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
+        android:hint="请输入名字"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:maxLength="18"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/confirm"
         app:layout_constraintEnd_toEndOf="parent"
