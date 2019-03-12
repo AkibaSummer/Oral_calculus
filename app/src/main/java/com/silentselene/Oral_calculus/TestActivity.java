@@ -7,6 +7,7 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -15,9 +16,10 @@ public class TestActivity extends AppCompatActivity {
     Ret nowProblem;
     int nowTime;
 
-    CountDownTimer timer;                               //get view
+    CountDownTimer timer, popTimer;                               //get view
     EditText answerE;
     TextView problemT, nowNumT, scoreT, nowTimeT;
+    private PopUtil popUtil;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,19 @@ public class TestActivity extends AppCompatActivity {
         scoreT = findViewById(R.id.score);
         nowTimeT = findViewById(R.id.times);
         nowNumT = findViewById(R.id.nownum);
+
+        popUtil = new PopUtil(TestActivity.this);
+        popTimer = new CountDownTimer(1500, 1500) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                popUtil.showAtLocation(findViewById(R.id.linearLayout), Gravity.TOP, 0, 0);
+            }
+
+            @Override
+            public void onFinish() {
+                popUtil.dismiss();
+            }
+        };  //pop window
 
         answerE.requestFocus();                             //keyboard push
         nowProblem = getProblem.get(Constant.type);
@@ -52,6 +67,7 @@ public class TestActivity extends AppCompatActivity {
                     long now_score = Constant.type_time[Constant.type] * 1000 - (System.currentTimeMillis() - begin_time);
                     now_score = now_score * Constant.type_time[Constant.type] / 200 + 500; //base score:500 point; max time score:500 point;
                     score += now_score;
+                    pop("正确,获得 " + now_score + " 分");
                     start_next_problem();
                 }
             }
@@ -106,8 +122,15 @@ public class TestActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         timer.cancel();
+        popTimer.cancel();
         this.finish();
+    }
+
+    void pop(String text) {
+        popTimer.cancel();
+        popUtil.textView.setText(text);
+        popTimer.start();
     }
 }

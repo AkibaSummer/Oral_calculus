@@ -2,6 +2,8 @@ package com.silentselene.Oral_calculus;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ScoreActivity extends AppCompatActivity {
@@ -9,9 +11,19 @@ public class ScoreActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
-        TextView score=findViewById(R.id.score_score);
+        TextView score = findViewById(R.id.score_score);
         score.setText(String.valueOf(Constant.score));
-        TextView type=findViewById(R.id.score_type);
+        TextView type = findViewById(R.id.score_type);
         type.setText(Constant.type_name[Constant.type]);
+
+        final ScoreActivity scoreActivity = this;
+
+        Button button = findViewById(R.id.confirm);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scoreActivity.finish();
+            }
+        });
     }
 }
