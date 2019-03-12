@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'demo'
             keyPassword 'zxcasd'
-            storeFile file('D:/ApkProjects/Oral_calculus/demo.jks')
+            storeFile file('/home/oopsvpwowlq/AndroidStudioProjects/Oral_calculus/demo.jks')
             storePassword 'zxcasd'
         }
     }

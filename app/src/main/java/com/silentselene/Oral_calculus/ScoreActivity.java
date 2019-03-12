@@ -18,9 +18,6 @@ public class ScoreActivity extends AppCompatActivity {
         score.setText(String.valueOf(Constant.score));
         TextView type = findViewById(R.id.score_type);
         type.setText(Constant.type_name[Constant.type]);
-        final EditText editText = findViewById(R.id.name);
-
-        final ScoreActivity scoreActivity = this;
 
         Button button = findViewById(R.id.confirm);
         button.setOnClickListener(new View.OnClickListener() {
@@ -28,7 +25,7 @@ public class ScoreActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     FileOutputStream fileOutputStream = openFileOutput("board_" + Constant.type, MODE_APPEND);
-                    String name = editText.getText().toString();
+                    String name = ((EditText) v.findViewById(R.id.name)).getText().toString();
                     if (name.length() == 0) name = "匿名";
                     fileOutputStream.write(name.getBytes().length);
                     fileOutputStream.write(name.getBytes());
@@ -38,8 +35,12 @@ public class ScoreActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                scoreActivity.finish();
+                exit();
             }
         });
+    }
+
+    void exit() {
+        finish();
     }
 }

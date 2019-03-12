@@ -34,7 +34,7 @@ public class TestActivity extends AppCompatActivity {
         nowTimeT = findViewById(R.id.times);
         nowNumT = findViewById(R.id.nownum);
 
-        popUtil = new PopUtil(TestActivity.this);
+        popUtil = new PopUtil(this);
         popTimer = new CountDownTimer(1500, 1500) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -97,7 +97,7 @@ public class TestActivity extends AppCompatActivity {
         nowTime = Constant.type_time[Constant.type] + 1;
         begin_time = System.currentTimeMillis();
         nowProblem = getProblem.get(Constant.type);
-        answerE.setText(null);
+        answerE.clearComposingText();
         updateView();
         timer.start();
     }
@@ -118,6 +118,7 @@ public class TestActivity extends AppCompatActivity {
             startActivity(intent);
 
             timer.cancel();
+            popTimer.cancel();
             finish();
         }
     }
