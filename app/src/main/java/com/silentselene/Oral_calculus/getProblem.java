@@ -176,7 +176,7 @@ final class getProblem {
             case 13:
                 return p13();
             default:
-                return new Ret("not","type"+i);
+                return new Ret("not", "type" + i);
         }
     }
 }

@@ -1,8 +1,8 @@
 package com.silentselene.Oral_calculus;
 
 class Constant {
-    static final int problemnums = 10;       //每次题目数量
-    static final int problemtypes = 13;       //总题目类型
+    static int problemNum = 10;       //每次题目数量
+    static final int problemTypes = 13;       //总题目类型
     static int score = 0;                    //当前分数
     static int type = 0;                     //当前类型
 

@@ -9,12 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.content.Context;
-
-import org.w3c.dom.Text;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
@@ -49,7 +45,7 @@ public class DashboardFragment extends Fragment {
 
     private void setButtonAction(final View view) {
         Button button;
-        for (int i = 0; i < Constant.problemtypes; i++) {
+        for (int i = 0; i < Constant.problemTypes; i++) {
             button = view.findViewById(id[i]);
             final TextView textView = view.findViewById(R.id.dashboard_title);
             final int ii = i;

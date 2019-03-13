@@ -86,11 +86,10 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        if (homeFragment ==null){
+        if (homeFragment == null) {
             homeFragment = new HomeFragment();
             transaction.add(R.id.main_fragment_container, homeFragment);
-        }
-        else {
+        } else {
             transaction.show(homeFragment);
         }
         transaction.commit();
@@ -98,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
     //初始化排行榜文件
     void initBoard() {
-        for (int i = 0; i < Constant.problemtypes; i++) {
+        for (int i = 0; i < Constant.problemTypes; i++) {
             try {
                 openFileInput("board_" + i).close();
             } catch (FileNotFoundException e) {

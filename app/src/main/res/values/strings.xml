@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">口算练习</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_home">主页</string>
+    <string name="title_dashboard">答题记录</string>
     <string name="title_notifications">Notifications</string>
     <string name="p_1">10以内的加法</string>
     <string name="p_2">20以内的加法</string>
-    <string name="p_3">100以内加法</string>
+    <string name="p_3">100以内的加法</string>
     <string name="p_4">万以内的加法</string>
     <string name="p_5">10以内的加减法</string>
     <string name="p_6">20以内的加减法</string>

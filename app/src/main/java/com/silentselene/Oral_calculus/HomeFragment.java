@@ -8,6 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
@@ -28,25 +32,66 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        setButtonAction(view, inflater);
+        setButtonAction(view);
         return view;
     }
 
-    private void setButtonAction(View view, final LayoutInflater inflater) {
-        Button button;
-        for (int i = 0; i < Constant.problemtypes; i++) {
+    private void setButtonAction(View view) {
+        Button button = view.findViewById(R.id.home_test_start);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startTest();
+            }
+        });
+        for (int i = 0; i < Constant.problemTypes; i++) {
             button = view.findViewById(id[i]);
             final int ii = i;
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Constant.type = ii;
-                    Intent intent = new Intent();
-                    intent.setClass(inflater.getContext(), TestActivity.class);
-                    startActivity(intent);
+                    setText(Constant.type_name[ii]);
+//                    Intent intent = new Intent();
+//                    intent.setClass(inflater.getContext(), TestActivity.class);
+//                    startActivity(intent);
                 }
             });
         }
+
+        RadioButton p10 = view.findViewById(R.id.p10);
+        p10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Constant.problemNum = 10;
+            }
+        });
+        RadioButton p20 = view.findViewById(R.id.p20);
+        p20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Constant.problemNum = 20;
+            }
+        });
+        RadioButton p50 = view.findViewById(R.id.p50);
+        p50.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Constant.problemNum = 50;
+            }
+        });
+
+    }
+
+    void setText(int id) {
+        TextView textView = Objects.requireNonNull(this.getActivity()).findViewById(R.id.test_title);
+        textView.setText(id);
+    }
+
+    void startTest() {
+        Intent intent = new Intent();
+        intent.setClass(Objects.requireNonNull(getContext()), TestActivity.class);
+        startActivity(intent);
     }
 }
 

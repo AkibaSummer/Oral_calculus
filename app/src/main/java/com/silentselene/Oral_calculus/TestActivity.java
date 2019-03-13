@@ -103,14 +103,14 @@ public class TestActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void updateView() {     //update view text
-        nowNumT.setText("第" + nowNum + "/" + Constant.problemnums + "题");
+        nowNumT.setText("第" + nowNum + "/" + Constant.problemNum + "题");
         problemT.setText(nowProblem.problem);
         scoreT.setText(String.valueOf(score));
         nowTimeT.setText(String.valueOf(nowTime));
     }
 
     private boolean judgeIsEnd() {
-        if (nowNum == Constant.problemnums) {
+        if (nowNum == Constant.problemNum) {
             Constant.score = (int) score;
             Intent intent = new Intent();
             intent.setClass(TestActivity.this, ScoreActivity.class);
@@ -135,7 +135,7 @@ public class TestActivity extends AppCompatActivity {
     }
 
     @Override
-    public void finish(){
+    public void finish() {
         timer.cancel();
         popTimer.cancel();
         popUtil.dismiss();
