@@ -121,12 +121,12 @@ final class getProblem {
 
     private static Ret p9() { //表内乘法
         int a = rand.nextInt(9) + 1, b = rand.nextInt(9) + 1;
-        return new Ret(a + " * " + b + " = ?", String.valueOf(a * b));
+        return new Ret(a + " × " + b + " = ?", String.valueOf(a * b));
     }
 
     private static Ret p10() { //表内除法
         int a = rand.nextInt(9) + 1, b = rand.nextInt(9) + 1;
-        return new Ret(a * b + " / " + a + " = ?", String.valueOf(b));
+        return new Ret(a * b + " ÷ " + a + " = ?", String.valueOf(b));
     }
 
     private static Ret p11() { //表内乘除法
@@ -137,13 +137,13 @@ final class getProblem {
     private static Ret p12() { //带余除法
         int a = rand.nextInt(9) + 1, b = rand.nextInt(9) + 1, c = rand.nextInt(a);
         if (rand.nextBoolean())
-            return new Ret((a * b + c) + " / " + a + " = ? …… " + c, String.valueOf(b)); //求商
-        else return new Ret((a * b + c) + " / " + a + " = " + b + " …… ?", String.valueOf(c)); //求余数
+            return new Ret((a * b + c) + " ÷ " + a + " = ? … " + c, String.valueOf(b)); //求商
+        else return new Ret((a * b + c) + " ÷ " + a + " = " + b + " … ?", String.valueOf(c)); //求余数
     }
 
     private static Ret p13() { //两位数的乘法
         int a = rand.nextInt(90) + 10, b = rand.nextInt(90) + 10;
-        return new Ret(a + " * " + b + " = ?", String.valueOf(a * b));
+        return new Ret(a + " × " + b + " = ?", String.valueOf(a * b));
     }
 
     static Ret get(int i) {

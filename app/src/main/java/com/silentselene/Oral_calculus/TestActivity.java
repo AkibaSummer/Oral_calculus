@@ -57,9 +57,11 @@ public class TestActivity extends AppCompatActivity {
         answerE.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (textView.getText().toString().length() == 0)
+                    return true;
                 if (textView.getText().toString().equals(nowProblem.ans)) {
                     long now_score = Constant.type_time[Constant.type] * 1000 - (System.currentTimeMillis() - begin_time);
-                    now_score = (now_score * 500 / (Constant.type_time[Constant.type] * 1000) + 500) * Constant.problemNum / 10; //base score:5000 point; max time score:5000 point;
+                    now_score = (now_score * 500 / (Constant.type_time[Constant.type] * 1000) + 500) * 10 / Constant.problemNum; //base score:5000 point; max time score:5000 point;
                     score += now_score;
                     pop("正确,获得 " + now_score + " 分", true);
                     Constant.correct++;
@@ -69,7 +71,7 @@ public class TestActivity extends AppCompatActivity {
                     Constant.incorrect++;
                     start_next_problem();
                 }
-                return false;
+                return true;
             }
         });
 
@@ -118,10 +120,10 @@ public class TestActivity extends AppCompatActivity {
             intent.setClass(TestActivity.this, ScoreActivity.class);
             startActivity(intent);
             Calendar calendar = Calendar.getInstance();
-            Constant.year = calendar.get(Calendar.YEAR)%100;
+            Constant.year = calendar.get(Calendar.YEAR) % 100;
             Constant.month = calendar.get(Calendar.MONTH) + 1;
             Constant.day = calendar.get(Calendar.DAY_OF_MONTH);
-            Constant.totalTime = (int) (System.currentTimeMillis() - starttime)/1000;
+            Constant.totalTime = (int) (System.currentTimeMillis() - starttime) / 1000;
 
             finish();
             return true;

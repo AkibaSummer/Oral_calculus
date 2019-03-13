@@ -51,7 +51,8 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     Constant.type = ii;
-                    setText(Constant.type_name[ii]);
+                    setText(ii);
+
 //                    Intent intent = new Intent();
 //                    intent.setClass(inflater.getContext(), TestActivity.class);
 //                    startActivity(intent);
@@ -85,7 +86,9 @@ public class HomeFragment extends Fragment {
 
     void setText(int id) {
         TextView textView = Objects.requireNonNull(this.getActivity()).findViewById(R.id.test_title);
-        textView.setText(id);
+        textView.setText(Constant.type_name[id]);
+        textView = Objects.requireNonNull(this.getActivity()).findViewById(R.id.home_time);
+        textView.setText(String.valueOf(Constant.type_time[id]));
     }
 
     void startTest() {
