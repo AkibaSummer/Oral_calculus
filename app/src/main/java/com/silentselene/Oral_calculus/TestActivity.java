@@ -65,7 +65,7 @@ public class TestActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
                 if (editable.toString().equals(nowProblem.ans)) {
                     long now_score = Constant.type_time[Constant.type] * 1000 - (System.currentTimeMillis() - begin_time);
-                    now_score = now_score * 500 / (Constant.type_time[Constant.type] * 1000) + 500; //base score:500 point; max time score:500 point;
+                    now_score = (now_score * 500 / (Constant.type_time[Constant.type] * 1000) + 500) * Constant.problemNum / 10; //base score:5000 point; max time score:5000 point;
                     score += now_score;
                     start_next_problem();
                     pop("正确,获得 " + now_score + " 分");
