@@ -123,7 +123,7 @@ public class TestActivity extends AppCompatActivity {
             Constant.year = calendar.get(Calendar.YEAR) % 100;
             Constant.month = calendar.get(Calendar.MONTH) + 1;
             Constant.day = calendar.get(Calendar.DAY_OF_MONTH);
-            Constant.totalTime = (int) (System.currentTimeMillis() - starttime) / 1000;
+            Constant.totalTime = (int) ((System.currentTimeMillis() - starttime) / 1000);
 
             finish();
             return true;
