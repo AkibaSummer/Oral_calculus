@@ -17,4 +17,13 @@
     <string name="p_12">带余除法</string>
     <string name="p_13">两位数的乘法</string>
     <string name="dashboard_title">排行榜</string>
+    <string name="score_num">总数量：</string>
+    <string name="score_time">用时：</string>
+    <string name="score_correct">答对：</string>
+    <string name="score_incorrect">答错：</string>
+    <string name="score_timeout">超时：</string>
+    <string name="score_rate">正确率：</string>
+    <string name="score_score">综合评分：</string>
+    <string name="format_rate">%.2f</string>
+    <string name="date_format">%02d/%02d/%02d</string>
 </resources>

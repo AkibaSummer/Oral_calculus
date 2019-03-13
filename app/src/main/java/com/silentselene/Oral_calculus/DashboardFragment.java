@@ -1,87 +1,97 @@
 package com.silentselene.Oral_calculus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Objects;
 
 
 public class DashboardFragment extends Fragment {
 
-    public final static int[] id = {R.id.button2_1,
-            R.id.button2_2,
-            R.id.button2_3,
-            R.id.button2_4,
-            R.id.button2_5,
-            R.id.button2_6,
-            R.id.button2_7,
-            R.id.button2_8,
-            R.id.button2_9,
-            R.id.button2_10,
-            R.id.button2_11,
-            R.id.button2_12,
-            R.id.button2_13};
-
-    LinearLayout name, score;
+    LinearLayout time, type, result;
+    ArrayList<Board> boards;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_dashbord, container, false);
-        setButtonAction(view);
-        name = view.findViewById(R.id.board_name);
-        score = view.findViewById(R.id.board_score);
+        time = view.findViewById(R.id.dashboard_time);
+        type = view.findViewById(R.id.dashboard_type);
+        result = view.findViewById(R.id.dashboard_result);
+        updateBoard();
         return view;
-    }
-
-    private void setButtonAction(final View view) {
-        Button button;
-        for (int i = 0; i < Constant.problemTypes; i++) {
-            button = view.findViewById(id[i]);
-            final TextView textView = view.findViewById(R.id.dashboard_title);
-            final int ii = i;
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    textView.setText(Constant.type_name[ii]);
-                    updateBoard(ii);
-                }
-            });
-        }
     }
 
     TextView getTextView(String string) {
         TextView ret = new TextView(this.getContext());
         ret.setText(string);
-        ret.setTextSize(20);
+        ret.setTextSize(22);
+        ret.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         return ret;
     }
 
-    void updateBoard(int ii) {
-        ArrayList<Board> boards = getBoard(ii);
-        name.removeAllViews();
-        score.removeAllViews();
+    @Override
+    public void onResume() {
+        updateBoard();
+        super.onResume();
+    }
+
+    void updateBoard() {
+        boards = getBoard();
+        time.removeAllViews();
+        type.removeAllViews();
+        result.removeAllViews();
         for (int i = 0; i < boards.size(); i++) {
-            name.addView(getTextView((i + 1) + "  " + boards.get(i).name));
-            score.addView(getTextView(String.valueOf(boards.get(i).score)));
+            time.addView(getTextView(getTime(i)));
+            type.addView(getTextView(getString(Constant.type_name[boards.get(i).type])));
+            TextView resultT = getTextView("查看结果");
+            resultT.setTextColor(getResources().getColor(R.color.colorBlue, Objects.requireNonNull(this.getActivity()).getTheme()));
+            final int ii = i;
+            resultT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    seeResult(ii);
+                }
+            });
+            result.addView(resultT);
         }
     }
 
+    String getTime(int i) {
+        int year = boards.get(i).year, month = boards.get(i).month, day = boards.get(i).day;
+        return String.format(getString(R.string.date_format), year, month, day);
+    }
 
-    ArrayList<Board> getBoard(int i) {
+    void seeResult(int i) {
+        Constant.year = boards.get(i).year;
+        Constant.month = boards.get(i).month;
+        Constant.day = boards.get(i).day;
+        Constant.type = boards.get(i).type;
+        Constant.problemNum = boards.get(i).problemNum;
+        Constant.totalTime = boards.get(i).totalTime;
+        Constant.correct = boards.get(i).correct;
+        Constant.incorrect = boards.get(i).incorrect;
+        Constant.timeout = boards.get(i).timeout;
+        Constant.score = boards.get(i).score;
+        Constant.isreview=true;
+        Intent intent = new Intent();
+        intent.setClass(Objects.requireNonNull(this.getContext()), ScoreActivity.class);
+        startActivity(intent);
+    }
+
+    ArrayList<Board> getBoard() {
         onAttach(this.getContext());
         FileInputStream fileInputStream = null;
         try {
-            fileInputStream = Objects.requireNonNull(getActivity()).openFileInput("board_" + i);
+            fileInputStream = Objects.requireNonNull(getActivity()).openFileInput("board");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -91,19 +101,27 @@ public class DashboardFragment extends Fragment {
         try {
             while (true) {
                 Board board = new Board();
-                int length = fileInputStream.read();
-                byte[] name = new byte[200];
-                if (fileInputStream.read(name, 0, length) == -1) break;
-                board.name = new String(name, 0, length);
-                board.score = fileInputStream.read() * 100 + fileInputStream.read();
+                board.year = fileInputStream.read();
+                if (board.year == -1) break;
+                board.month = fileInputStream.read();
+                board.day = fileInputStream.read();
+                board.type = fileInputStream.read();
+                board.problemNum = fileInputStream.read();
+                board.totalTime = fileInputStream.read();
+                board.totalTime = board.totalTime * 100 + fileInputStream.read();
+                board.totalTime = board.totalTime * 100 + fileInputStream.read();
+                board.totalTime = board.totalTime * 100 + fileInputStream.read();
+                board.correct = fileInputStream.read();
+                board.incorrect = fileInputStream.read();
+                board.timeout = fileInputStream.read();
+                board.score = fileInputStream.read();
+                board.score = board.score * 100 + fileInputStream.read();
                 ret.add(board);
             }
             fileInputStream.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Collections.sort(ret);
         return ret;
     }
-
 }

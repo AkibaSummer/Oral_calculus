@@ -5,6 +5,10 @@ class Constant {
     static final int problemTypes = 13;       //总题目类型
     static int score = 0;                    //当前分数
     static int type = 0;                     //当前类型
+    static int correct = 0, incorrect = 0, timeout = 0;       //正确，错误题数
+    static int totalTime = 0;                   //总用时
+    static int year,month,day;
+    static boolean isreview;
 
     final static int[] type_name = {
             R.string.p_1,
@@ -29,12 +33,7 @@ class Constant {
     };
 }
 
-class Board implements Comparable<Board> {
-    String name;
-    int score;
-
-    @Override
-    public int compareTo(Board o) {
-        return -Integer.compare(score, o.score);
-    }
+class Board {
+    int year,month,day;
+    int type,problemNum,totalTime,correct,incorrect,timeout,score;
 }

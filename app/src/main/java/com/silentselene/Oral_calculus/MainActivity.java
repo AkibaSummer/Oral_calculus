@@ -97,18 +97,16 @@ public class MainActivity extends AppCompatActivity {
 
     //初始化排行榜文件
     void initBoard() {
-        for (int i = 0; i < Constant.problemTypes; i++) {
+        try {
+            openFileInput("board").close();
+        } catch (FileNotFoundException e) {
             try {
-                openFileInput("board_" + i).close();
-            } catch (FileNotFoundException e) {
-                try {
-                    openFileOutput("board_" + i, Context.MODE_PRIVATE).close();
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+                openFileOutput("board", Context.MODE_PRIVATE).close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

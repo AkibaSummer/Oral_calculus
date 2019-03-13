@@ -11,7 +11,7 @@ import android.widget.TextView;
 class PopUtil extends PopupWindow {
 
     private Context mContext;
-    private View mPopWindow;
+    View mPopWindow;
     TextView textView;
 
     PopUtil(Context context) {

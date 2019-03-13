@@ -89,6 +89,7 @@ public class HomeFragment extends Fragment {
     }
 
     void startTest() {
+        Constant.isreview=false;
         Intent intent = new Intent();
         intent.setClass(Objects.requireNonNull(getContext()), TestActivity.class);
         startActivity(intent);

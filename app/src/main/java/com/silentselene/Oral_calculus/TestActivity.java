@@ -5,14 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.FileOutputStream;
+import java.util.Calendar;
+
 public class TestActivity extends AppCompatActivity {
-    long nowNum = 0, score = 0, begin_time;
+    long nowNum = 0, score = 0, begin_time, starttime;
     Ret nowProblem;
     int nowTime;
 
@@ -27,6 +29,8 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
         setTitle(Constant.type_name[Constant.type]);
         Constant.score = -1;
+        Constant.incorrect = Constant.correct = Constant.timeout = Constant.totalTime = 0;
+        starttime = System.currentTimeMillis();
 
         answerE = findViewById(R.id.answer);
         problemT = findViewById(R.id.problem);
@@ -50,26 +54,22 @@ public class TestActivity extends AppCompatActivity {
         answerE.requestFocus();                             //keyboard push
         nowProblem = getProblem.get(Constant.type);
 
-        answerE.addTextChangedListener(new TextWatcher() { //text changed action
+        answerE.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (editable.toString().equals(nowProblem.ans)) {
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (textView.getText().toString().equals(nowProblem.ans)) {
                     long now_score = Constant.type_time[Constant.type] * 1000 - (System.currentTimeMillis() - begin_time);
                     now_score = (now_score * 500 / (Constant.type_time[Constant.type] * 1000) + 500) * Constant.problemNum / 10; //base score:5000 point; max time score:5000 point;
                     score += now_score;
+                    pop("正确,获得 " + now_score + " 分", true);
+                    Constant.correct++;
                     start_next_problem();
-                    pop("正确,获得 " + now_score + " 分");
+                } else {
+                    pop("答案错误", false);
+                    Constant.incorrect++;
+                    start_next_problem();
                 }
+                return false;
             }
         });
 
@@ -83,7 +83,9 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onFinish() {                        // time out
                 start_next_problem();
-                pop("超时");
+                pop("超时", false);
+                Constant.totalTime += Constant.type_time[Constant.type] * 1000;
+                Constant.timeout++;
             }
         };
 
@@ -115,6 +117,11 @@ public class TestActivity extends AppCompatActivity {
             Intent intent = new Intent();
             intent.setClass(TestActivity.this, ScoreActivity.class);
             startActivity(intent);
+            Calendar calendar = Calendar.getInstance();
+            Constant.year = calendar.get(Calendar.YEAR)%100;
+            Constant.month = calendar.get(Calendar.MONTH) + 1;
+            Constant.day = calendar.get(Calendar.DAY_OF_MONTH);
+            Constant.totalTime = (int) (System.currentTimeMillis() - starttime)/1000;
 
             finish();
             return true;
@@ -127,10 +134,11 @@ public class TestActivity extends AppCompatActivity {
         finish();
     }
 
-    void pop(String text) {
+    void pop(String text, boolean type) {
         popTimer.cancel();
         popUtil.dismiss();
         popUtil.textView.setText(text);
+        popUtil.mPopWindow.setBackgroundColor(type ? getResources().getColor(R.color.colorPrimaryDark, getTheme()) : getResources().getColor(R.color.colorAccent, getTheme()));
         popTimer.start();
     }
 
