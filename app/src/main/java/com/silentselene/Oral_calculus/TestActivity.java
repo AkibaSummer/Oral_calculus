@@ -116,14 +116,14 @@ public class TestActivity extends AppCompatActivity {
     private boolean judgeIsEnd() {
         if (nowNum == Constant.problemNum) {
             Constant.score = (int) score;
-            Intent intent = new Intent();
-            intent.setClass(TestActivity.this, ScoreActivity.class);
-            startActivity(intent);
             Calendar calendar = Calendar.getInstance();
             Constant.year = calendar.get(Calendar.YEAR) % 100;
             Constant.month = calendar.get(Calendar.MONTH) + 1;
             Constant.day = calendar.get(Calendar.DAY_OF_MONTH);
             Constant.totalTime = (int) ((System.currentTimeMillis() - starttime) / 1000);
+            Intent intent = new Intent();
+            intent.setClass(TestActivity.this, ScoreActivity.class);
+            startActivity(intent);
 
             finish();
             return true;
