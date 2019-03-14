@@ -108,6 +108,17 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        try {
+            openFileInput("incorrect").close();
+        } catch (FileNotFoundException e) {
+            try {
+                openFileOutput("incorrect", Context.MODE_PRIVATE).close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

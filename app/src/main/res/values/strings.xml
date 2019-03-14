@@ -2,7 +2,7 @@
     <string name="app_name">口算练习</string>
     <string name="title_home">主页</string>
     <string name="title_dashboard">答题记录</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">错题回顾</string>
     <string name="p_1">10以内的加法</string>
     <string name="p_2">20以内的加法</string>
     <string name="p_3">100以内的加法</string>
@@ -26,4 +26,5 @@
     <string name="score_score">综合评分：</string>
     <string name="format_rate">%.2f</string>
     <string name="date_format">%02d/%02d/%02d</string>
+    <string name="refresh_record">清空答题记录</string>
 </resources>

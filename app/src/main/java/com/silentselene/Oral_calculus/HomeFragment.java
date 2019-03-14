@@ -36,6 +36,12 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        setText(Constant.type);
+        super.onResume();
+    }
+
     private void setButtonAction(View view) {
         Button button = view.findViewById(R.id.home_test_start);
         button.setOnClickListener(new View.OnClickListener() {
@@ -52,10 +58,6 @@ public class HomeFragment extends Fragment {
                 public void onClick(View view) {
                     Constant.type = ii;
                     setText(ii);
-
-//                    Intent intent = new Intent();
-//                    intent.setClass(inflater.getContext(), TestActivity.class);
-//                    startActivity(intent);
                 }
             });
         }

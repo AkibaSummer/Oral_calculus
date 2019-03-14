@@ -69,6 +69,7 @@ public class TestActivity extends AppCompatActivity {
                 } else {
                     pop("答案错误", false);
                     Constant.incorrect++;
+                    writeP(1);
                     start_next_problem();
                 }
                 return true;
@@ -84,6 +85,7 @@ public class TestActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {                        // time out
+                writeP(2);
                 start_next_problem();
                 pop("超时", false);
                 Constant.totalTime += Constant.type_time[Constant.type] * 1000;
@@ -156,5 +158,19 @@ public class TestActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         finish();
+    }
+
+    void writeP(int type){
+        try {
+            FileOutputStream fileOutputStream = openFileOutput("incorrect", MODE_APPEND);
+            fileOutputStream.write(type);
+            fileOutputStream.write(nowProblem.problem.getBytes().length);
+            fileOutputStream.write(nowProblem.problem.getBytes());
+            fileOutputStream.write(nowProblem.ans.getBytes().length);
+            fileOutputStream.write(nowProblem.ans.getBytes());
+            fileOutputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

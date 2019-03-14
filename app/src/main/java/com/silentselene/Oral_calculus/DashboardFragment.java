@@ -49,7 +49,7 @@ public class DashboardFragment extends Fragment {
         time.removeAllViews();
         type.removeAllViews();
         result.removeAllViews();
-        for (int i = 0; i < boards.size(); i++) {
+        for (int i = boards.size() - 1; i >= 0; i--) {
             time.addView(getTextView(getTime(i)));
             type.addView(getTextView(getString(Constant.type_name[boards.get(i).type])));
             TextView resultT = getTextView("查看结果");
@@ -81,7 +81,7 @@ public class DashboardFragment extends Fragment {
         Constant.incorrect = boards.get(i).incorrect;
         Constant.timeout = boards.get(i).timeout;
         Constant.score = boards.get(i).score;
-        Constant.isreview=true;
+        Constant.isreview = true;
         Intent intent = new Intent();
         intent.setClass(Objects.requireNonNull(this.getContext()), ScoreActivity.class);
         startActivity(intent);

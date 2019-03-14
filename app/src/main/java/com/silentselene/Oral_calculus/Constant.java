@@ -37,3 +37,8 @@ class Board {
     int year,month,day;
     int type,problemNum,totalTime,correct,incorrect,timeout,score;
 }
+
+class Incorrect{
+    Ret ret=new Ret();
+    int type;
+}
