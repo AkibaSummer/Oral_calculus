@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 class PopUtil extends PopupWindow {
 
-    private Context mContext;
     View mPopWindow;
     TextView textView;
+    private Context mContext;
 
     PopUtil(Context context) {
         this.mContext = context;
@@ -20,6 +20,11 @@ class PopUtil extends PopupWindow {
         mPopWindow = inflater.inflate(R.layout.toast, null);
         textView = mPopWindow.findViewById(R.id.txtToastMessage);
         setPopWindow();
+    }
+
+    private static int dip2px(Context context, float dipValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dipValue * scale + 0.5f);
     }
 
     private void setPopWindow() {
@@ -33,10 +38,5 @@ class PopUtil extends PopupWindow {
         this.setFocusable(false);
         //   设置背景透明
         this.setBackgroundDrawable(new ColorDrawable(0x00000000));
-    }
-
-    private static int dip2px(Context context, float dipValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dipValue * scale + 0.5f);
     }
 }

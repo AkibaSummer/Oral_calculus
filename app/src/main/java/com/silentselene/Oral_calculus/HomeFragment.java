@@ -90,11 +90,11 @@ public class HomeFragment extends Fragment {
         TextView textView = Objects.requireNonNull(this.getActivity()).findViewById(R.id.test_title);
         textView.setText(Constant.type_name[id]);
         textView = Objects.requireNonNull(this.getActivity()).findViewById(R.id.home_time);
-        textView.setText(String.valueOf(Constant.type_time[id])+"秒");
+        textView.setText(String.valueOf(Constant.type_time[id]) + "秒");
     }
 
     void startTest() {
-        Constant.isreview=false;
+        Constant.isreview = false;
         Intent intent = new Intent();
         intent.setClass(Objects.requireNonNull(getContext()), TestActivity.class);
         startActivity(intent);

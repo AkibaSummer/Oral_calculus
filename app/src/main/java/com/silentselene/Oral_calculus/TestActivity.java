@@ -160,7 +160,7 @@ public class TestActivity extends AppCompatActivity {
         finish();
     }
 
-    void writeP(int type){
+    void writeP(int type) {
         try {
             FileOutputStream fileOutputStream = openFileOutput("incorrect", MODE_APPEND);
             fileOutputStream.write(type);

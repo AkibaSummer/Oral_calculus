@@ -15,10 +15,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class SettingFragment extends Fragment {
+public class IncorrectBoardFragment extends Fragment {
+    LinearLayout problem, answer, status;
+    ArrayList<Incorrect> incorrect;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_setting, container, false);
+        View view = inflater.inflate(R.layout.fragment_incorrect_board, container, false);
         problem = view.findViewById(R.id.incorrect_problem);
         answer = view.findViewById(R.id.incorrect_answer);
         status = view.findViewById(R.id.incorrect_status);
@@ -34,9 +37,6 @@ public class SettingFragment extends Fragment {
         updateBoard();
         return view;
     }
-
-    LinearLayout problem, answer, status;
-    ArrayList<Incorrect> incorrect;
 
     void refresh(String s) {
         try {

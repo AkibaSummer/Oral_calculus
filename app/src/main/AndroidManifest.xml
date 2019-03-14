@@ -20,8 +20,8 @@
         </activity>
 
         <activity
-            android:windowSoftInputMode="stateAlwaysVisible|adjustResize"
-            android:name=".TestActivity" />
+            android:name=".TestActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize" />
         <activity android:name=".ScoreActivity" />
 
     </application>

@@ -17,21 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager;
     private HomeFragment homeFragment;
     private DashboardFragment dashboardFragment;
-    private SettingFragment settingFragment;
-
-    //隐藏所有Fragment
-    public void hideAllFragment(FragmentTransaction transaction) {
-        if (homeFragment != null) {
-            transaction.hide(homeFragment);
-        }
-        if (dashboardFragment != null) {
-            transaction.hide(dashboardFragment);
-        }
-        if (settingFragment != null) {
-            transaction.hide(settingFragment);
-        }
-    }
-
+    private IncorrectBoardFragment incorrectBoardFragment;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -60,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
                     transaction.commit();
                     return true;
                 case R.id.navigation_notifications:
-                    if (settingFragment == null) {
-                        settingFragment = new SettingFragment();
-                        transaction.add(R.id.main_fragment_container, settingFragment);
+                    if (incorrectBoardFragment == null) {
+                        incorrectBoardFragment = new IncorrectBoardFragment();
+                        transaction.add(R.id.main_fragment_container, incorrectBoardFragment);
                     } else {
-                        transaction.show(settingFragment);
+                        transaction.show(incorrectBoardFragment);
                     }
                     transaction.commit();
                     return true;
@@ -73,6 +59,19 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
+
+    //隐藏所有Fragment
+    public void hideAllFragment(FragmentTransaction transaction) {
+        if (homeFragment != null) {
+            transaction.hide(homeFragment);
+        }
+        if (dashboardFragment != null) {
+            transaction.hide(dashboardFragment);
+        }
+        if (incorrectBoardFragment != null) {
+            transaction.hide(incorrectBoardFragment);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

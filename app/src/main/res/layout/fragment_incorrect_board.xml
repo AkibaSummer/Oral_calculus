@@ -45,8 +45,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/incorrect_status"
@@ -75,7 +75,7 @@
                 android:layout_weight="1"
                 android:divider="@color/colorPrimaryDark"
                 android:orientation="vertical"
-                android:showDividers="middle"/>
+                android:showDividers="middle" />
         </LinearLayout>
     </ScrollView>
 
