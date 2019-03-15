@@ -1,6 +1,7 @@
 package com.silentselene.Oral_calculus;
 
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ public class ScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
         updateView();
+        this.setTitle(R.string.app_title);
 
         if (!Constant.isReview)
             try {
@@ -38,6 +40,17 @@ public class ScoreActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
+        TextView rule = findViewById(R.id.score_score);
+        rule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(view.getContext())
+                        .setTitle("评分标准")
+                        .setMessage(R.string.rule)
+                        .setPositiveButton("确定", null)
+                        .show();
+            }
+        });
         Button button = findViewById(R.id.confirm);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +65,7 @@ public class ScoreActivity extends AppCompatActivity {
         TextView num = findViewById(R.id.score_num);
         TextView each_time = findViewById(R.id.score_each_time);
         TextView time = findViewById(R.id.score_time);
+        TextView avg_time = findViewById(R.id.score_avgtime);
         TextView correct = findViewById(R.id.score_correct);
         TextView incorrect = findViewById(R.id.score_incorrect);
         TextView timeout = findViewById(R.id.score_timeout);
@@ -61,6 +75,7 @@ public class ScoreActivity extends AppCompatActivity {
         num.setText((getResources().getString(R.string.score_num) + Constant.problemNum));
         each_time.setText((getResources().getString(R.string.score_each_time) + (Constant.isReview ? Constant.re_each_time : Constant.each_time) + "秒"));
         time.setText((getResources().getString(R.string.score_time) + Constant.totalTime + "秒"));
+        avg_time.setText((getResources().getString(R.string.score_avgTime) + (int) ((float) Constant.totalTime / Constant.problemNum + 0.5) + "秒"));
         correct.setText((getResources().getString(R.string.score_correct) + Constant.correct));
         incorrect.setText((getResources().getString(R.string.score_incorrect) + Constant.incorrect));
         timeout.setText((getResources().getString(R.string.score_timeout) + Constant.timeout));

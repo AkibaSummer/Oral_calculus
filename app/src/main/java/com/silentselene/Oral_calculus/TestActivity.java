@@ -20,7 +20,7 @@ public class TestActivity extends AppCompatActivity {
 
     CountDownTimer timer, popTimer;                               //get view
     EditText answerE;
-    TextView problemT, nowNumT, scoreT, nowTimeT;
+    TextView problemT, nowNumT, nowTimeT;
     PopUtil popUtil;
 
     @Override
@@ -34,7 +34,7 @@ public class TestActivity extends AppCompatActivity {
 
         answerE = findViewById(R.id.answer);
         problemT = findViewById(R.id.problem);
-        scoreT = findViewById(R.id.score);
+//        scoreT = findViewById(R.id.score);
         nowTimeT = findViewById(R.id.times);
         nowNumT = findViewById(R.id.nownum);
 
@@ -93,16 +93,16 @@ public class TestActivity extends AppCompatActivity {
             }
         };
 
-        new CountDownTimer(1000, 1000) {         //set time action
-            @Override
-            public void onTick(long millisUntilFinished) {
-            }
-
-            @Override
-            public void onFinish() {                        // time out
-                pop("输入答案后请点击发送键验证", true);
-            }
-        }.start();
+//        new CountDownTimer(1000, 1000) {         //set time action
+//            @Override
+//            public void onTick(long millisUntilFinished) {
+//            }
+//
+//            @Override
+//            public void onFinish() {                        // time out
+//                pop("输入答案后请点击发送键验证", true);
+//            }
+//        }.start();
 
         start_next_problem();
     }
@@ -122,7 +122,7 @@ public class TestActivity extends AppCompatActivity {
     private void updateView() {     //update view text
         nowNumT.setText("第" + nowNum + "/" + Constant.problemNum + "题");
         problemT.setText(nowProblem.problem);
-        scoreT.setText(String.valueOf(score));
+//        scoreT.setText(String.valueOf(score));
         nowTimeT.setText(String.valueOf(nowTime));
     }
 

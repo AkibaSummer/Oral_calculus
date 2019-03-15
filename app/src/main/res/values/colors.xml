@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorLight">#F0FFFF</color>
-    <color name="colorBlue">#AAAAff</color>
+    <color name="colorBlue">#AAAAFF</color>
     <color name="colorClicked">#33008577</color>
     <color name="color_Text">#77008577</color>
 </resources>

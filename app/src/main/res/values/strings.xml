@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">口算练习</string>
+    <string name="app_title">小学生数学口算练习</string>
     <string name="title_home">主页</string>
     <string name="title_dashboard">答题记录</string>
     <string name="title_notifications">错题回顾</string>
@@ -21,15 +22,17 @@
     <string name="p_16">100以内的加减混合</string>
     <string name="p_17">万以内的加减混合</string>
     <string name="dashboard_title">排行榜</string>
-    <string name="score_num">总数量：</string>
-    <string name="score_time">用时：</string>
-    <string name="score_correct">答对：</string>
-    <string name="score_incorrect">答错：</string>
-    <string name="score_timeout">超时：</string>
-    <string name="score_rate">正确率：</string>
+    <string name="score_num">总数量　：</string>
+    <string name="score_time">总用时　：约</string>
+    <string name="score_avgTime">平均用时：约</string>
+    <string name="score_correct">答对题数：</string>
+    <string name="score_incorrect">答错题数：</string>
+    <string name="score_timeout">超时题数：</string>
+    <string name="score_rate">正确率　：</string>
     <string name="score_score">综合评分：</string>
     <string name="format_rate">%.2f</string>
     <string name="date_format">%02d/%02d</string>
     <string name="refresh_record">清空答题记录</string>
     <string name="score_each_time">每题时限：</string>
+    <string name="rule">评分标准：分数取决于正确题目的数量与所用时间。答对题数越多，用时越短分数越高。</string>
 </resources>
