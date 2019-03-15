@@ -9,8 +9,7 @@
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/test_title"
+        app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,10 +24,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:baselineAligned="false"
                 android:divider="@color/colorPrimaryDark"
                 android:orientation="horizontal"
-                android:showDividers="middle"
-                android:baselineAligned="false">
+                android:showDividers="middle">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -105,10 +104,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:baselineAligned="false"
                 android:divider="@color/colorPrimaryDark"
                 android:orientation="horizontal"
-                android:showDividers="middle"
-                android:baselineAligned="false">
+                android:showDividers="middle">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -167,34 +166,11 @@
         android:id="@+id/view"
         android:layout_width="wrap_content"
         android:layout_height="1px"
-        android:layout_marginBottom="4dp"
-        android:background="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/test_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/test_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/p_1"
-        android:textSize="24sp"
+        android:background="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <View
-        android:id="@+id/view4"
-        android:layout_width="wrap_content"
-        android:layout_height="1px"
-        android:layout_marginTop="4dp"
-        android:background="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test_title" />
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -213,21 +189,10 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/home_time"
+            <NumberPicker
+                android:id="@+id/set_time"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="10秒"
-                android:textAlignment="center"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView2"
-                app:layout_constraintEnd_toStartOf="@+id/radioGroup"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/radioGroup" />
+                android:layout_height="wrap_content"></NumberPicker>
 
             <TextView
                 android:id="@+id/textView2"
@@ -256,7 +221,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="clip_vertical|center_horizontal"
             android:orientation="vertical">
 
             <RadioGroup

@@ -17,11 +17,12 @@ class Constant {
             R.string.p_12,
             R.string.p_13,
     };
-    final static int[] type_time = { //每题时间
-            10, 10, 20, 30, 10,
-            10, 20, 30, 10, 10,
-            10, 20, 30
-    };
+    //    final static int[] type_time = { //每题时间
+//            10, 10, 20, 30, 10,
+//            10, 20, 30, 10, 10,
+//            10, 20, 30
+//    };
+    static int each_time = 10;
     static int problemNum = 10;       //每次题目数量
     static int score = 0;                    //当前分数
     static int type = 0;                     //当前类型

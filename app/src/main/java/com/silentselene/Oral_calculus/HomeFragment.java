@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.NumberPicker;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
 import java.util.Objects;
 
@@ -33,12 +33,27 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         setButtonAction(view);
+
+        NumberPicker numberPicker = view.findViewById(R.id.set_time);
+        numberPicker.setMaxValue(20);
+        numberPicker.setMinValue(3);
+        numberPicker.setValue(10);
+        numberPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+                Constant.each_time = i1;
+            }
+        });
+
+//        setColor(Constant.type);
         return view;
     }
 
     @Override
     public void onResume() {
-        setText(Constant.type);
+//        setText(Constant.type);
+        setColor(Constant.type);
         super.onResume();
     }
 
@@ -57,7 +72,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     Constant.type = ii;
-                    setText(ii);
+//                    setText(ii);
                     setColor(ii);
                 }
             });
@@ -87,12 +102,12 @@ public class HomeFragment extends Fragment {
 
     }
 
-    void setText(int id) {
-        TextView textView = Objects.requireNonNull(this.getActivity()).findViewById(R.id.test_title);
-        textView.setText(Constant.type_name[id]);
-        textView = Objects.requireNonNull(this.getActivity()).findViewById(R.id.home_time);
-        textView.setText(String.valueOf(Constant.type_time[id]) + "秒");
-    }
+//    void setText(int id) {
+//        TextView textView = Objects.requireNonNull(this.getActivity()).findViewById(R.id.test_title);
+//        textView.setText(Constant.type_name[id]);
+//        textView = Objects.requireNonNull(this.getActivity()).findViewById(R.id.home_time);
+//        textView.setText(String.valueOf(Constant.type_time[id]) + "秒");
+//    }
 
     void setColor(int i) {
         for (int ii = 0; ii < id.length; ii++) {

@@ -39,7 +39,7 @@ public class TestActivity extends AppCompatActivity {
         nowNumT = findViewById(R.id.nownum);
 
         popUtil = new PopUtil(this);
-        popTimer = new CountDownTimer(1500, 1500) {
+        popTimer = new CountDownTimer(2000, 2000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 popUtil.showAtLocation(findViewById(R.id.linearLayout), Gravity.TOP, 0, 0);
@@ -60,8 +60,8 @@ public class TestActivity extends AppCompatActivity {
                 if (textView.getText().toString().length() == 0)
                     return true;
                 if (textView.getText().toString().equals(nowProblem.ans)) {
-                    long now_score = Constant.type_time[Constant.type] * 1000 - (System.currentTimeMillis() - begin_time);
-                    now_score = (now_score * 500 / (Constant.type_time[Constant.type] * 1000) + 500) * 10 / Constant.problemNum; //base score:5000 point; max time score:5000 point;
+                    long now_score = Constant.each_time * 1000 - (System.currentTimeMillis() - begin_time);
+                    now_score = (now_score * 500 / (Constant.each_time * 1000) + 500) * 10 / Constant.problemNum; //base score:5000 point; max time score:5000 point;
                     score += now_score;
                     pop("正确,获得 " + now_score + " 分", true);
                     Constant.correct++;
@@ -76,7 +76,7 @@ public class TestActivity extends AppCompatActivity {
             }
         });
 
-        timer = new CountDownTimer(Constant.type_time[Constant.type] * 1000, 1000) {         //set time action
+        timer = new CountDownTimer(Constant.each_time * 1000, 1000) {         //set time action
             @Override
             public void onTick(long millisUntilFinished) {
                 nowTime--;
@@ -88,12 +88,12 @@ public class TestActivity extends AppCompatActivity {
                 writeP(2);
                 start_next_problem();
                 pop("超时", false);
-                Constant.totalTime += Constant.type_time[Constant.type] * 1000;
+                Constant.totalTime += Constant.each_time * 1000;
                 Constant.timeout++;
             }
         };
 
-        pop("输入答案后请点击发送键验证", true);
+        pop("输入答案后请点击提交键验证", true);
         start_next_problem();
     }
 
@@ -101,7 +101,7 @@ public class TestActivity extends AppCompatActivity {
         timer.cancel();
         if (judgeIsEnd()) return;
         ++nowNum;
-        nowTime = Constant.type_time[Constant.type];
+        nowTime = Constant.each_time;
         begin_time = System.currentTimeMillis();
         nowProblem = getProblem.get(Constant.type);
         answerE.setText("");
