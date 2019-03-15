@@ -275,6 +275,7 @@
                 android:layout_marginBottom="8dp"
                 android:text="每题时限"
                 android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/radioGroup"
@@ -310,6 +311,7 @@
                 android:layout_marginBottom="8dp"
                 android:text="题目数量"
                 android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -332,21 +334,24 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:text="10 题" />
+                    android:text="10 题"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <RadioButton
                     android:id="@+id/p20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="20 题" />
+                    android:text="20 题"
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <RadioButton
                     android:id="@+id/p50"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="50 题" />
+                    android:text="50 题"
+                    android:textColor="@color/colorPrimaryDark" />
             </RadioGroup>
 
         </LinearLayout>
@@ -368,6 +373,7 @@
             android:layout_marginBottom="8dp"
             android:layout_weight="1"
             android:text="开始\n练习"
+            android:textColor="@color/colorPrimary"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

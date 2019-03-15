@@ -75,7 +75,7 @@ public class ScoreActivity extends AppCompatActivity {
         num.setText((getResources().getString(R.string.score_num) + Constant.problemNum));
         each_time.setText((getResources().getString(R.string.score_each_time) + (Constant.isReview ? Constant.re_each_time : Constant.each_time) + "秒"));
         time.setText((getResources().getString(R.string.score_time) + Constant.totalTime + "秒"));
-        avg_time.setText((getResources().getString(R.string.score_avgTime) + (int) ((float) Constant.totalTime / Constant.problemNum + 0.5) + "秒"));
+        avg_time.setText((getResources().getString(R.string.score_avgTime) + String.format(getString(R.string.format_avg_time), (float) Constant.totalTime / Constant.problemNum) + "秒"));
         correct.setText((getResources().getString(R.string.score_correct) + Constant.correct));
         incorrect.setText((getResources().getString(R.string.score_incorrect) + Constant.incorrect));
         timeout.setText((getResources().getString(R.string.score_timeout) + Constant.timeout));
