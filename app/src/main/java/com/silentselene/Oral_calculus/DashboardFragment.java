@@ -76,6 +76,7 @@ public class DashboardFragment extends Fragment {
         Constant.day = boards.get(i).day;
         Constant.viewType = boards.get(i).type;
         Constant.problemNum = boards.get(i).problemNum;
+        Constant.re_each_time = boards.get(i).each_time;
         Constant.totalTime = boards.get(i).totalTime;
         Constant.correct = boards.get(i).correct;
         Constant.incorrect = boards.get(i).incorrect;
@@ -107,6 +108,7 @@ public class DashboardFragment extends Fragment {
                 board.day = fileInputStream.read();
                 board.type = fileInputStream.read();
                 board.problemNum = fileInputStream.read();
+                board.each_time = fileInputStream.read();
                 board.totalTime = fileInputStream.read();
                 board.totalTime = board.totalTime * 100 + fileInputStream.read();
                 board.totalTime = board.totalTime * 100 + fileInputStream.read();

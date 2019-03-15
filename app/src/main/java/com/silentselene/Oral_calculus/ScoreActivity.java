@@ -23,6 +23,7 @@ public class ScoreActivity extends AppCompatActivity {
                 fileOutputStream.write(Constant.day);
                 fileOutputStream.write(Constant.type);
                 fileOutputStream.write(Constant.problemNum);
+                fileOutputStream.write(Constant.each_time);
                 fileOutputStream.write(Constant.totalTime / 1000000);
                 fileOutputStream.write(Constant.totalTime / 10000 % 100);
                 fileOutputStream.write(Constant.totalTime / 100 % 100);
@@ -49,6 +50,7 @@ public class ScoreActivity extends AppCompatActivity {
     void updateView() {
         TextView type = findViewById(R.id.score_type);
         TextView num = findViewById(R.id.score_num);
+        TextView each_time = findViewById(R.id.score_each_time);
         TextView time = findViewById(R.id.score_time);
         TextView correct = findViewById(R.id.score_correct);
         TextView incorrect = findViewById(R.id.score_incorrect);
@@ -57,6 +59,7 @@ public class ScoreActivity extends AppCompatActivity {
         TextView score = findViewById(R.id.score_score);
         type.setText(Constant.type_name[Constant.isReview ? Constant.viewType : Constant.type]);
         num.setText((getResources().getString(R.string.score_num) + Constant.problemNum));
+        each_time.setText((getResources().getString(R.string.score_each_time) + (Constant.isReview ? Constant.re_each_time : Constant.each_time) + "秒"));
         time.setText((getResources().getString(R.string.score_time) + Constant.totalTime + "秒"));
         correct.setText((getResources().getString(R.string.score_correct) + Constant.correct));
         incorrect.setText((getResources().getString(R.string.score_incorrect) + Constant.incorrect));

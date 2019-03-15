@@ -23,6 +23,7 @@ class Constant {
 //            10, 20, 30
 //    };
     static int each_time = 10;
+    static int re_each_time = 10;
     static int problemNum = 10;       //每次题目数量
     static int score = 0;                    //当前分数
     static int type = 0;                     //当前类型
@@ -35,7 +36,7 @@ class Constant {
 
 class Board {
     int year, month, day;
-    int type, problemNum, totalTime, correct, incorrect, timeout, score;
+    int type, problemNum, each_time, totalTime, correct, incorrect, timeout, score;
 }
 
 class Incorrect {

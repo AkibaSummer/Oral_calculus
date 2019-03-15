@@ -112,10 +112,10 @@ final class getProblem {
 
     private static Ret p4() { //万以内的加法
         int a = rand.nextInt(9999) + 1, b = rand.nextInt(10000 - a) + 1;
-        if (rand.nextBoolean())
+//        if (rand.nextBoolean())
             return new Ret(a + " + " + b + " = ?", String.valueOf(a + b));
-        else
-            return new Ret(a + " + " + "?" + " = " + (a + b), String.valueOf(b));
+//        else
+//            return new Ret(a + " + " + "?" + " = " + (a + b), String.valueOf(b));
 //        return generateAdd(10000, rand.nextInt(2) + 2, rand.nextInt(1));
     }
 

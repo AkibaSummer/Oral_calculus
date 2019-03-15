@@ -27,4 +27,5 @@
     <string name="format_rate">%.2f</string>
     <string name="date_format">%02d/%02d</string>
     <string name="refresh_record">清空答题记录</string>
+    <string name="score_each_time">每题时限：</string>
 </resources>
