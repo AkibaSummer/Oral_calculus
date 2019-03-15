@@ -67,7 +67,7 @@ public class DashboardFragment extends Fragment {
 
     String getTime(int i) {
         int year = boards.get(i).year, month = boards.get(i).month, day = boards.get(i).day;
-        return String.format(getString(R.string.date_format), year, month, day);
+        return String.format(getString(R.string.date_format),  month, day);
     }
 
     void seeResult(int i) {

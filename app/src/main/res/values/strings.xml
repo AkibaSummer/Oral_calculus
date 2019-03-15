@@ -25,6 +25,6 @@
     <string name="score_rate">正确率：</string>
     <string name="score_score">综合评分：</string>
     <string name="format_rate">%.2f</string>
-    <string name="date_format">%02d/%02d/%02d</string>
+    <string name="date_format">%02d/%02d</string>
     <string name="refresh_record">清空答题记录</string>
 </resources>

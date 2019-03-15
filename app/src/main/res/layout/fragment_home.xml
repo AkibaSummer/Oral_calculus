@@ -189,11 +189,6 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <NumberPicker
-                android:id="@+id/set_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></NumberPicker>
-
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
@@ -208,6 +203,11 @@
                 app:layout_constraintEnd_toStartOf="@+id/radioGroup"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <NumberPicker
+                android:id="@+id/set_time"
+                android:layout_width="wrap_content"
+                android:layout_height="105dp"></NumberPicker>
+
         </LinearLayout>
 
         <View
@@ -221,8 +221,22 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="clip_vertical|center_horizontal"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="题目数量"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <RadioGroup
                 android:id="@+id/radioGroup"
@@ -257,20 +271,6 @@
                     android:layout_weight="1"
                     android:text="50 题" />
             </RadioGroup>
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="题目数量"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
 
         </LinearLayout>
 

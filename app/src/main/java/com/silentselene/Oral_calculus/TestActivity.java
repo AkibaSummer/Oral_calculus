@@ -93,7 +93,17 @@ public class TestActivity extends AppCompatActivity {
             }
         };
 
-        pop("输入答案后请点击提交键验证", true);
+        new CountDownTimer(1000, 1000) {         //set time action
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {                        // time out
+                pop("输入答案后请点击提交键验证", true);
+            }
+        }.start();
+
         start_next_problem();
     }
 
