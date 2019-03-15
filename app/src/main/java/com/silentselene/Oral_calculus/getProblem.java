@@ -84,19 +84,39 @@ final class getProblem {
     }
 
     private static Ret p1() { //10以内的加法
-        return generateAdd(9, 2, rand.nextInt(1));
+        int a = rand.nextInt(8) + 1, b = rand.nextInt(9 - a) + 1;
+        if (rand.nextBoolean())
+            return new Ret(a + " + " + b + " = ?", String.valueOf(a + b));
+        else
+            return new Ret(a + " + " + "?" + " = " + (a + b), String.valueOf(b));
+//        return generateAdd(9, 2, rand.nextInt(1));
     }
 
     private static Ret p2() { //20以内的加法
-        return generateAdd(20, 2, rand.nextInt(1));
+        int a = rand.nextInt(19) + 1, b = rand.nextInt(20 - a) + 1;
+        if (rand.nextBoolean())
+            return new Ret(a + " + " + b + " = ?", String.valueOf(a + b));
+        else
+            return new Ret(a + " + " + "?" + " = " + (a + b), String.valueOf(b));
+//        return generateAdd(20, 2, rand.nextInt(1));
     }
 
     private static Ret p3() { //100以内加法
-        return generateAdd(99, rand.nextInt(1) + 2, rand.nextInt(1));
+        int a = rand.nextInt(98) + 1, b = rand.nextInt(99 - a) + 1;
+        if (rand.nextBoolean())
+            return new Ret(a + " + " + b + " = ?", String.valueOf(a + b));
+        else
+            return new Ret(a + " + " + "?" + " = " + (a + b), String.valueOf(b));
+//        return generateAdd(99, rand.nextInt(1) + 2, rand.nextInt(1));
     }
 
     private static Ret p4() { //万以内的加法
-        return generateAdd(10000, rand.nextInt(2) + 2, rand.nextInt(1));
+        int a = rand.nextInt(9999) + 1, b = rand.nextInt(10000 - a) + 1;
+        if (rand.nextBoolean())
+            return new Ret(a + " + " + b + " = ?", String.valueOf(a + b));
+        else
+            return new Ret(a + " + " + "?" + " = " + (a + b), String.valueOf(b));
+//        return generateAdd(10000, rand.nextInt(2) + 2, rand.nextInt(1));
     }
 
     private static Ret p5() { //10以内的减法
