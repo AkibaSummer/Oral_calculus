@@ -84,39 +84,35 @@ final class getProblem {
     }
 
     private static Ret p1() { //10以内的加法
-        return generateAdd(9, 2, 0);
+        return generateAdd(9, 2, rand.nextInt(1));
     }
 
     private static Ret p2() { //20以内的加法
-        return generateAdd(20, 2, 0);
+        return generateAdd(20, 2, rand.nextInt(1));
     }
 
     private static Ret p3() { //100以内加法
-        return generateAdd(99, rand.nextInt(1) + 2, 0);
+        return generateAdd(99, rand.nextInt(1) + 2, rand.nextInt(1));
     }
 
     private static Ret p4() { //万以内的加法
-        return generateAdd(10000, rand.nextInt(2) + 2, 0);
+        return generateAdd(10000, rand.nextInt(2) + 2, rand.nextInt(1));
     }
 
-    private static Ret p5() { //10以内的加减法
-        if (rand.nextBoolean()) return generateAdd(9, 2, rand.nextInt(1));
-        else return generateSub(9, 2, rand.nextInt(1));
+    private static Ret p5() { //10以内的减法
+        return generateSub(9, 2, rand.nextInt(1));
     }
 
-    private static Ret p6() { //20以内的加减法
-        if (rand.nextBoolean()) return generateAdd(20, 2, rand.nextInt(1));
-        else return generateSub(20, 2, rand.nextInt(1));
+    private static Ret p6() { //20以内的减法
+        return generateSub(20, 2, rand.nextInt(1));
     }
 
-    private static Ret p7() { //100以内的加减法
-        if (rand.nextBoolean()) return generateAdd(99, rand.nextInt(1) + 2, rand.nextInt(1));
-        else return generateSub(99, rand.nextInt(1) + 2, rand.nextInt(1));
+    private static Ret p7() { //100以内的减法
+        return generateSub(99, rand.nextInt(1) + 2, rand.nextInt(1));
     }
 
-    private static Ret p8() { //万以内的加减法
-        if (rand.nextBoolean()) return generateAdd(10000, rand.nextInt(2) + 2, rand.nextInt(1));
-        else return generateSub(10000, rand.nextInt(2) + 2, rand.nextInt(1));
+    private static Ret p8() { //万以内的减法
+        return generateSub(10000, rand.nextInt(2) + 2, rand.nextInt(1));
     }
 
     private static Ret p9() { //表内乘法
