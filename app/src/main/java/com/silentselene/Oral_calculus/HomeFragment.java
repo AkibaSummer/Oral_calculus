@@ -27,7 +27,11 @@ public class HomeFragment extends Fragment {
             R.id.button1_10,
             R.id.button1_11,
             R.id.button1_12,
-            R.id.button1_13};
+            R.id.button1_13,
+            R.id.button1_14,
+            R.id.button1_15,
+            R.id.button1_16,
+            R.id.button1_17};
 
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {

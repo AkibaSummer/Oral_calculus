@@ -16,6 +16,10 @@
     <string name="p_11">表内乘除法</string>
     <string name="p_12">带余除法</string>
     <string name="p_13">两位数的乘法</string>
+    <string name="p_14">10以内的加减混合</string>
+    <string name="p_15">20以内的加减混合</string>
+    <string name="p_16">100以内的加减混合</string>
+    <string name="p_17">万以内的加减混合</string>
     <string name="dashboard_title">排行榜</string>
     <string name="score_num">总数量：</string>
     <string name="score_time">用时：</string>

@@ -100,7 +100,7 @@ public class TestActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {                        // time out
-                pop("输入答案后请点击提交键验证", true);
+                pop("输入答案后请点击发送键验证", true);
             }
         }.start();
 

@@ -33,7 +33,7 @@ public class DashboardFragment extends Fragment {
     TextView getTextView(String string) {
         TextView ret = new TextView(this.getContext());
         ret.setText(string);
-        ret.setTextSize(22);
+        ret.setTextSize(20);
         ret.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         return ret;
     }
@@ -52,7 +52,7 @@ public class DashboardFragment extends Fragment {
         for (int i = boards.size() - 1; i >= 0; i--) {
             time.addView(getTextView(getTime(i)));
             type.addView(getTextView(getString(Constant.type_name[boards.get(i).type])));
-            TextView resultT = getTextView("查看结果");
+            TextView resultT = getTextView("查看");
             resultT.setTextColor(getResources().getColor(R.color.colorBlue, Objects.requireNonNull(this.getActivity()).getTheme()));
             final int ii = i;
             resultT.setOnClickListener(new View.OnClickListener() {

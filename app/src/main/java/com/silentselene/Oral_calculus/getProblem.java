@@ -113,7 +113,7 @@ final class getProblem {
     private static Ret p4() { //万以内的加法
         int a = rand.nextInt(9999) + 1, b = rand.nextInt(10000 - a) + 1;
 //        if (rand.nextBoolean())
-            return new Ret(a + " + " + b + " = ?", String.valueOf(a + b));
+        return new Ret(a + " + " + b + " = ?", String.valueOf(a + b));
 //        else
 //            return new Ret(a + " + " + "?" + " = " + (a + b), String.valueOf(b));
 //        return generateAdd(10000, rand.nextInt(2) + 2, rand.nextInt(1));
@@ -162,6 +162,32 @@ final class getProblem {
         return new Ret(a + " × " + b + " = ?", String.valueOf(a * b));
     }
 
+    private static Ret generateMix(int max) {    //生成加减混合运算
+        if (rand.nextBoolean()) {
+            int a = rand.nextInt(max - 1), b = rand.nextInt(max - a) + 1, c = rand.nextInt(a + b - 1) + 1;
+            return new Ret(a + " + " + b + " - " + c + " = ?", String.valueOf(a + b - c));
+        } else {
+            int a = rand.nextInt(max) + 1, b = rand.nextInt(a) + 1, c = rand.nextInt(max - (a - b)) + 1;
+            return new Ret(a + " - " + b + " + " + c + " = ?", String.valueOf(a - b + c));
+        }
+    }
+
+    private static Ret p14() { //10以内的加减混合运算
+        return generateMix(9);
+    }
+
+    private static Ret p15() { //20以内的加减混合运算
+        return generateMix(20);
+    }
+
+    private static Ret p16() { //100以内的加减混合运算
+        return generateMix(99);
+    }
+
+    private static Ret p17() { //万以内的加减混合运算
+        return generateMix(10000);
+    }
+
     static Ret get(int i) {
         i++;
         switch (i) {
@@ -191,6 +217,14 @@ final class getProblem {
                 return p12();
             case 13:
                 return p13();
+            case 14:
+                return p14();
+            case 15:
+                return p15();
+            case 16:
+                return p16();
+            case 17:
+                return p17();
             default:
                 return new Ret("not", "type" + i);
         }

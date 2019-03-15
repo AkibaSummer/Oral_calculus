@@ -16,7 +16,7 @@
             android:id="@+id/dashboard_title2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="答题时间"
             android:textAlignment="center"
             android:textSize="24sp" />
@@ -25,7 +25,7 @@
             android:id="@+id/dashboard_title3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="4"
             android:text="题型"
             android:textAlignment="center"
             android:textSize="26sp" />
@@ -35,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="答题结果"
+            android:text="结果"
             android:textAlignment="center"
             android:textSize="24sp" />
 
@@ -54,7 +54,7 @@
                 android:id="@+id/dashboard_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:divider="@color/colorPrimaryDark"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
@@ -64,7 +64,7 @@
                 android:id="@+id/dashboard_type"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="4"
                 android:divider="@color/colorPrimaryDark"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"

@@ -1,7 +1,7 @@
 package com.silentselene.Oral_calculus;
 
 class Constant {
-    static final int problemTypes = 13;       //总题目类型
+    static final int problemTypes = 17;       //总题目类型
     final static int[] type_name = {
             R.string.p_1,
             R.string.p_2,
@@ -16,6 +16,10 @@ class Constant {
             R.string.p_11,
             R.string.p_12,
             R.string.p_13,
+            R.string.p_14,
+            R.string.p_15,
+            R.string.p_16,
+            R.string.p_17,
     };
     //    final static int[] type_time = { //每题时间
 //            10, 10, 20, 30, 10,

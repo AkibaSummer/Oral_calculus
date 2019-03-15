@@ -64,7 +64,7 @@ public class ScoreActivity extends AppCompatActivity {
         correct.setText((getResources().getString(R.string.score_correct) + Constant.correct));
         incorrect.setText((getResources().getString(R.string.score_incorrect) + Constant.incorrect));
         timeout.setText((getResources().getString(R.string.score_timeout) + Constant.timeout));
-        rate.setText((getResources().getString(R.string.score_rate) + String.format(getString(R.string.format_rate), (float) Constant.correct / Constant.problemNum)));
+        rate.setText((getResources().getString(R.string.score_rate) + (Constant.correct * 100 / Constant.problemNum) + "%"));
         score.setText((getResources().getString(R.string.score_score) + (Constant.score / 100)));
     }
 

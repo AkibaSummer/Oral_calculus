@@ -105,6 +105,40 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button1_14"
+                    style="@android:style/Widget.Material.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/p_14" />
+
+                <Button
+                    android:id="@+id/button1_15"
+                    style="@android:style/Widget.Material.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/p_15" />
+
+                <Button
+                    android:id="@+id/button1_16"
+                    style="@android:style/Widget.Material.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/p_16" />
+
+                <Button
+                    android:id="@+id/button1_17"
+                    style="@android:style/Widget.Material.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/p_17" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:baselineAligned="false"
                 android:divider="@color/colorPrimaryDark"
                 android:orientation="horizontal"
