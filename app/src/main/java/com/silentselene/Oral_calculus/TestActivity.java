@@ -93,6 +93,7 @@ public class TestActivity extends AppCompatActivity {
             }
         };
 
+        pop("输入答案后请点击发送键验证", true);
         start_next_problem();
     }
 

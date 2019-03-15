@@ -15,7 +15,7 @@ public class ScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_score);
         updateView();
 
-        if (!Constant.isreview)
+        if (!Constant.isReview)
             try {
                 FileOutputStream fileOutputStream = openFileOutput("board", MODE_APPEND);
                 fileOutputStream.write(Constant.year);
@@ -55,7 +55,7 @@ public class ScoreActivity extends AppCompatActivity {
         TextView timeout = findViewById(R.id.score_timeout);
         TextView rate = findViewById(R.id.score_rate);
         TextView score = findViewById(R.id.score_score);
-        type.setText(Constant.type_name[Constant.type]);
+        type.setText(Constant.type_name[Constant.isReview ? Constant.viewType : Constant.type]);
         num.setText((getResources().getString(R.string.score_num) + Constant.problemNum));
         time.setText((getResources().getString(R.string.score_time) + Constant.totalTime + "秒"));
         correct.setText((getResources().getString(R.string.score_correct) + Constant.correct));

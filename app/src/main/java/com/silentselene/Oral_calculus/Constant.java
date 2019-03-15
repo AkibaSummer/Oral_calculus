@@ -25,10 +25,11 @@ class Constant {
     static int problemNum = 10;       //每次题目数量
     static int score = 0;                    //当前分数
     static int type = 0;                     //当前类型
+    static int viewType = 0;
     static int correct = 0, incorrect = 0, timeout = 0;       //正确，错误题数
     static int totalTime = 0;                   //总用时
     static int year, month, day;
-    static boolean isreview;
+    static boolean isReview;
 }
 
 class Board {

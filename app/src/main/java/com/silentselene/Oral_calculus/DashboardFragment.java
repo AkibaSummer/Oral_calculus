@@ -74,14 +74,14 @@ public class DashboardFragment extends Fragment {
         Constant.year = boards.get(i).year;
         Constant.month = boards.get(i).month;
         Constant.day = boards.get(i).day;
-        Constant.type = boards.get(i).type;
+        Constant.viewType = boards.get(i).type;
         Constant.problemNum = boards.get(i).problemNum;
         Constant.totalTime = boards.get(i).totalTime;
         Constant.correct = boards.get(i).correct;
         Constant.incorrect = boards.get(i).incorrect;
         Constant.timeout = boards.get(i).timeout;
         Constant.score = boards.get(i).score;
-        Constant.isreview = true;
+        Constant.isReview = true;
         Intent intent = new Intent();
         intent.setClass(Objects.requireNonNull(this.getContext()), ScoreActivity.class);
         startActivity(intent);

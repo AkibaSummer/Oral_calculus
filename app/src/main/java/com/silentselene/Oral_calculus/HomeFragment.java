@@ -58,6 +58,7 @@ public class HomeFragment extends Fragment {
                 public void onClick(View view) {
                     Constant.type = ii;
                     setText(ii);
+                    setColor(ii);
                 }
             });
         }
@@ -93,8 +94,15 @@ public class HomeFragment extends Fragment {
         textView.setText(String.valueOf(Constant.type_time[id]) + "秒");
     }
 
+    void setColor(int i) {
+        for (int ii = 0; ii < id.length; ii++) {
+            Button button = Objects.requireNonNull(this.getActivity()).findViewById(id[ii]);
+            button.setBackgroundColor(ii == i ? getResources().getColor(R.color.colorClicked, this.getActivity().getTheme()) : 0);
+        }
+    }
+
     void startTest() {
-        Constant.isreview = false;
+        Constant.isReview = false;
         Intent intent = new Intent();
         intent.setClass(Objects.requireNonNull(getContext()), TestActivity.class);
         startActivity(intent);
